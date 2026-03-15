@@ -1,0 +1,21 @@
+<section class="hero"></section>
+
+<style>
+  .hero {
+    position: relative;
+    background-image: url('/images/hero-vert.webp');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: calc(100dvh - 7.5rem);
+    top: -2rem;
+    width: 100dvw;
+  }
+
+  @media (min-width: 768px) {
+    .hero {
+      background-image: url('/images/hero-horizontal.webp');
+      height: 600px;
+    }
+  }
+</style>

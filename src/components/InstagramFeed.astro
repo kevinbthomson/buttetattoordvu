@@ -1,0 +1,138 @@
+---
+const INSTAGRAM_TOKEN = import.meta.env.INSTAGRAM_ACCESS_TOKEN;
+
+type InstagramPost = {
+  id: string;
+  caption?: string;
+  media_type: 'IMAGE' | 'VIDEO' | 'CAROUSEL_ALBUM';
+  media_url: string;
+  thumbnail_url?: string;
+  permalink: string;
+  timestamp: string;
+};
+
+let posts: InstagramPost[] = [];
+
+if (INSTAGRAM_TOKEN) {
+  try {
+    const res = await fetch(
+      `https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,thumbnail_url,permalink,timestamp&limit=4&access_token=${INSTAGRAM_TOKEN}`
+    );
+
+    if (res.ok) {
+      const json = await res.json();
+      posts = json.data ?? [];
+    }
+  } catch (e) {
+    console.error('Failed to fetch Instagram posts:', e);
+  }
+}
+---
+
+{posts.length > 0 && (
+  <section class="instagram-feed container">
+    <h2>Follow Along <span>@mammothamerican</span></h2>
+
+    <div class="feed-grid">
+      {posts.map((post) => (
+        <a href={post.permalink} target="_blank" rel="noopener noreferrer" class="feed-item">
+          <img
+            src={post.media_type === 'VIDEO' ? post.thumbnail_url : post.media_url}
+            alt={post.caption ? post.caption.slice(0, 100) : 'Instagram post from Mammoth American Tattoo'}
+            loading="lazy"
+          />
+          <div class="feed-overlay">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <div class="feed-cta">
+      <a href="https://www.instagram.com/mammothamerican" target="_blank" rel="noopener noreferrer" class="button">
+        View on Instagram
+      </a>
+    </div>
+  </section>
+)}
+
+<style>
+  .instagram-feed {
+    padding-block: 4rem;
+    text-align: center;
+  }
+
+  h2 {
+    font-family: var(--heading-font);
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-block: 0 2rem;
+  }
+
+  h2 span {
+    display: block;
+    font-family: var(--body-font);
+    font-size: 1.25rem;
+    color: var(--gray-50);
+    margin-block-start: 0.25rem;
+  }
+
+  .feed-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .feed-item {
+    position: relative;
+    aspect-ratio: 1;
+    overflow: hidden;
+    border-radius: 0.25rem;
+  }
+
+  .feed-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: scale 0.3s ease;
+  }
+
+  .feed-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gray-40);
+    color: white;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .feed-overlay svg {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .feed-item:hover img {
+    scale: 1.05;
+  }
+
+  .feed-item:hover .feed-overlay {
+    opacity: 1;
+  }
+
+  .feed-cta {
+    margin-block-start: 2rem;
+  }
+
+  @media screen and (min-width: 768px) {
+    .feed-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+</style>

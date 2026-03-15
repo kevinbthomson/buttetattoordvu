@@ -1,0 +1,108 @@
+---
+
+---
+
+<script>
+  const button = document.querySelector('button');
+  let isOpen = false;
+
+  const handleClick = () => {
+    document.querySelector('body')?.dataset.menuIsOpen;
+
+    if (isOpen) {
+      button?.classList.add('open');
+    }
+
+    if (!isOpen) {
+      button?.classList.remove('open');
+    }
+
+    console.log(isOpen);
+  };
+
+  button?.addEventListener('click', handleClick);
+</script>
+
+<button
+  aria-label="Open menu"
+  type="button"
+  class="hamburger"
+  data-toggle="main-nav"
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    height="24px"
+    viewBox="0 -960 960 960"
+    width="24px"
+    fill="#000000"
+    ><path
+      d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"
+    ></path></svg
+  >
+</button>
+
+<style>
+  button[data-toggle='main-nav'] {
+    appearance: none;
+    background-color: #cecaca;
+    box-shadow: 0.2rem 0.2rem 0 #000000;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+
+    bottom: 2rem;
+    cursor: pointer;
+    display: grid;
+    height: 3rem;
+    left: 2rem;
+    place-items: center;
+    position: fixed;
+    transform: scale(1);
+    transition: all 0.4s ease;
+    width: 3rem;
+    z-index: 3000;
+
+    &:hover {
+      scale: 1.2;
+      background-color: rgba(black, 0.75);
+    }
+
+    &:active {
+      background-color: black;
+      transform: scale(1.125);
+    }
+    /* 
+    &[data-mobile-nav-open='true'] {
+      background-color: var(--primary-color);
+    } */
+  }
+
+  @media (min-width: 768px) {
+    button[data-toggle='main-nav'] {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  export default function menuToggle(el: HTMLElement) {
+    if (!el) return;
+
+    el.dataset.mobileNavOpen === 'true'
+      ? (el.dataset.mobileNavOpen = 'false')
+      : (el.dataset.mobileNavOpen = 'true');
+  }
+
+  const body = document.body;
+  const mainNav = document.querySelector(
+    'nav[aria-label="Main"]'
+  ) as HTMLElement | null;
+  const menuBtn = document.querySelector(
+    '[data-toggle="main-nav"]'
+  ) as HTMLElement | null;
+
+  menuBtn?.addEventListener('click', () => {
+    menuToggle(body);
+    menuToggle(mainNav!);
+    menuToggle(menuBtn!);
+  });
+</script>
