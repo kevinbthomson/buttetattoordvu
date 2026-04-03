@@ -29,7 +29,7 @@
   }
 
   nav {
-    &[aria-label='Main'] {
+    &[aria-label="Main"] {
       background-color: #2f2f2f;
       box-sizing: border-box;
       height: 100vh;
@@ -44,20 +44,18 @@
       z-index: 100;
 
       &::before {
-        content: '';
+        content: "";
         position: absolute;
         right: -2rem;
         bottom: -2rem;
         width: 70%;
         aspect-ratio: 1;
-        background-image: url('/images/logo.png');
-        background-size: contain;
-        background-repeat: no-repeat;
+
         opacity: 0.625;
         pointer-events: none;
       }
 
-      &[data-mobile-nav-open='true'] {
+      &[data-mobile-nav-open="true"] {
         translate: 0 0;
       }
     }
@@ -89,7 +87,7 @@
             scale: 1;
           }
 
-          &[aria-current='page'] {
+          &[aria-current="page"] {
             color: var(--highlight-color);
           }
         }
@@ -98,7 +96,7 @@
   }
 
   @media screen and (min-width: 768px) {
-    nav[aria-label='Main'] {
+    nav[aria-label="Main"] {
       background-color: transparent;
       height: auto;
       padding: 0;
