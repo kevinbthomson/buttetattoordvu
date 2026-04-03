@@ -1,21 +1,16 @@
 ---
-// import { sanityClient } from 'sanity:client';
+import { sanityClient } from 'sanity:client';
 
-// const siteSettings = await sanityClient.fetch(`*[_type == "siteSettings"]`);
+const siteSettings = await sanityClient.fetch(`*[_type == "siteSettings"]`);
 
-// const { siteTitle, address, phone, email, instagram, facebook } =
-//   siteSettings[0];
-const siteTitle = 'Butte Montana Tattoo';
-const address = '123 Main St, Butte, MT 59701';
-const email = 'info@buttemontanatattoo.com';
-const instagram = 'buttemontanatattoo';
-const facebook = 'buttemontanatattoo';
+const { siteTitle, address, email, instagram, facebook } =
+  siteSettings[0];
 ---
 
 <footer>
   <div class="footer-content">
     <div class="footer-section">
-      <h3>Studio</h3>
+      <h3>Contact</h3>
       <p>
         <a
           href="https://www.google.com/maps/place/Mammoth+American+Tattoo/@39.7546897,-104.9668086,17z/data=!3m1!4b1!4m6!3m5!1s0x876b879cac505b19:0xf28717647faec95e!8m2!3d39.7546856!4d-104.9642337!16s%2Fg%2F1q6jkb7bn?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D"

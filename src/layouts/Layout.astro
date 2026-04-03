@@ -7,16 +7,9 @@ const siteSettings = await sanityClient.fetch(`*[_type == "siteSettings"]`);
 
 const site = siteSettings[0];
 
-// const site = {
-//   siteTitle: 'Butte Montana Tattoo',
-//   siteDescription: 'Butte Montana Tattoo is a tattoo studio in Butte, Montana.',
-//   address: '123 Main St, Butte, MT 59701',
-//   email: 'info@buttemontanatattoo.com',
-//   instagram: 'buttemontanatattoo',
-//   facebook: 'buttemontanatattoo',
-// }
-
 const isHomePage = Astro.props.isHomePage;
+
+import '../styles/index.css';
 ---
 
 <!doctype html>
@@ -32,7 +25,7 @@ const isHomePage = Astro.props.isHomePage;
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=New+Rocker&display=swap"
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Rye&display=swap"
       rel="stylesheet"
     />
   </head>

@@ -1,21 +1,94 @@
-<section class="hero"></section>
+---
+import { Image } from "astro:assets";
+import heroPoster from "../assets/images/hero-poster.webp";
+---
+
+<section class="hero-banner">
+  <div class="container">
+    <div class="hero-content">
+      <h1>Welcome to the 2026 Montana Tattoo & Western Arts Rendezvous!</h1>
+      <p>A small show with a lot of talent! Its one not to miss out on!</p>
+      <p>
+        All styles of tattooing will be available. Whether it be American
+        Traditional, Black and Gray, Fine Line, Realism, or Japanese, we will be
+        showcasing a lineup of the best tattoo artists the US and around the
+        world in a safe, clean, and family friendly environment.
+      </p>
+    </div>
+    <div class="hero-image">
+      <Image
+        src={heroPoster}
+        alt="Butte Montana Tattoo & Western Arts Rendezvous"
+        format="webp"
+        fetchpriority="high"
+        class="hero-poster"
+      />
+    </div>
+  </div>
+</section>
 
 <style>
-  .hero {
+  .hero-banner {
+    background-color: rgb(176, 212, 236);
+    width: 100%;
+    z-index: 1;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+
+  .hero-image img {
+    border: 0.5rem solid white;
+    box-shadow:
+      2px 2px 0px #f4a708,
+      4px 4px 3px rgba(0, 0, 0, 0.75);
+    max-width: 90dvw;
     position: relative;
-    background-image: url('/images/hero-vert.webp');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: calc(100dvh - 7.5rem);
-    top: -2rem;
-    width: 100dvw;
+    width: 400px;
+  }
+
+  .hero-poster {
+    max-width: 100%;
+  }
+
+  h1 {
+    color: var(--gray-80);
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin: 0;
+    text-align: center;
+    text-shadow: 1px 1px 0.25rem white;
   }
 
   @media (min-width: 768px) {
-    .hero {
-      background-image: url('/images/hero-horizontal.webp');
+    .hero-banner {
+      flex-direction: row;
       height: 600px;
+    }
+
+    .container {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .hero-image {
+      rotate: 1deg;
+      width: 420px;
+    }
+
+    .hero-poster {
+      width: min(100%, 800px);
+      height: auto;
+    }
+
+    h1 {
+      font-size: 3rem;
     }
   }
 </style>

@@ -46,5 +46,11 @@ export const siteSettings = defineType({
       title: 'Facebook name',
       type: 'string',
     }),
+    defineField({
+      name: 'hotelLink',
+      title: 'Hotel Booking Link',
+      type: 'url',
+      validation: (rule) => rule.required(),
+    }),
   ],
 });

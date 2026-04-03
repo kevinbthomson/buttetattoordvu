@@ -1,0 +1,43 @@
+<section>
+  <div class="container">
+    <h2>3 days of Live Tattooing & Western Art Vendors!</h2>
+
+
+    <div class="days">
+      <div class="day">
+        <h3><span>Friday</span> May 22nd</h3>
+        <p>2pm - 10pm</p>
+      </div> 
+      <div class="day">
+        <h3><span>Saturday</span> May 23rd</h3>
+        <p>12pm - 10pm</p>
+      </div>
+      <div class="day">
+        <h3><span>Sunday</span> May 24th</h3>
+        <p>12pm - 8pm</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .days {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .days {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  .day {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 1rem;
+    border-radius: 0.25rem;
+  }
+</style>

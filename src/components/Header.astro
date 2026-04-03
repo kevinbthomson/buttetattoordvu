@@ -1,21 +1,21 @@
 ---
-import { sanityClient } from 'sanity:client';
-import Image from 'astro/components/Image.astro';
-import Hamburger from './Hamburger.astro';
-import Logo from '../assets/logo.png';
+import { sanityClient } from "sanity:client";
+import Image from "astro/components/Image.astro";
+import Hamburger from "./Hamburger.astro";
+import Logo from "../assets/logo.png";
 const siteSettings = await sanityClient.fetch(`*[_type == "siteSettings"]`);
 
 const site = siteSettings[0];
 
-import Nav from './Nav.astro';
-import NavSecondary from './NavSecondary.astro';
+import Nav from "./Nav.astro";
+import NavSecondary from "./NavSecondary.astro";
 
 const isHomePage: boolean = Astro.props.isHomePage;
 ---
 
 <header class="site-header">
   <div class="container">
-    <Nav aria-label="Main" />
+    <!-- <Nav aria-label="Main" /> -->
     <a
       href="/"
       class="logo"
@@ -27,7 +27,7 @@ const isHomePage: boolean = Astro.props.isHomePage;
     <NavSecondary aria-label="Secondary" />
   </div>
 
-  <Hamburger />
+  <!-- <Hamburger /> -->
 </header>
 
 <style>
@@ -46,7 +46,7 @@ const isHomePage: boolean = Astro.props.isHomePage;
     width: 100vw;
     z-index: 1000;
 
-    &[data-scrolled='true'] {
+    &[data-scrolled="true"] {
       border-bottom-width: 0.25rem;
       height: 4rem;
     }
@@ -90,15 +90,15 @@ const isHomePage: boolean = Astro.props.isHomePage;
   }
 
   const header = document.querySelector(
-    'header.site-header'
+    "header.site-header",
   ) as HTMLElement | null;
 
-  window.addEventListener('scroll', () => {
+  window.addEventListener("scroll", () => {
     if (window.scrollY > 100) {
-      if (header) resizeHeader(header, 'true');
+      if (header) resizeHeader(header, "true");
       // if (heroBanner) resizeHeader(heroBanner, 'true');
     } else {
-      if (header) resizeHeader(header, 'false');
+      if (header) resizeHeader(header, "false");
       // if (heroBanner) resizeHeader(heroBanner, 'false');
     }
   });

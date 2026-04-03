@@ -1,21 +1,17 @@
 ---
-// import { sanityClient } from 'sanity:client';
+import { sanityClient } from 'sanity:client';
 import Layout from '../layouts/Layout.astro';
+import GoogleMap from '../components/GoogleMap.astro';
+import Hero from '../components/Hero.astro';
+import Days from '../components/Days.astro';
+const siteSettings = await sanityClient.fetch(`*[_type == "siteSettings"]`);
 
-// const siteSettings = await sanityClient.fetch(`*[_type == "siteSettings"]`);
+const { siteTitle } = siteSettings[0];
 
-// const site = siteSettings[0];
-
-const site = {
-  siteTitle: 'Butte Montana Tattoo',
-  siteDescription: 'Butte Montana Tattoo is a tattoo studio in Butte, Montana.',
-  address: '123 Main St, Butte, MT 59701',
-  email: 'info@buttemontanatattoo.com',
-  instagram: 'buttemontanatattoo',
-  facebook: 'buttemontanatattoo',
-}
 ---
 
-<Layout title={site.siteTitle} isHomePage={true}>
-	<h1>Home</h1>
+<Layout title={siteTitle} isHomePage={true}>
+	<Hero />
+	<Days />
+	<GoogleMap />
 </Layout>
