@@ -16,24 +16,17 @@ const isHomePage: boolean = Astro.props.isHomePage;
 <header class="site-header">
   <div class="container">
     <!-- <Nav aria-label="Main" /> -->
-    <a
-      href="/"
-      class="logo"
-      aria-label="Home"
-      style="display: flex; align-items: center; gap: 1rem;"
-    >
-      <h4 class="new-rocker-regular">{site.siteTitle}</h4>
-    </a>
+    <!-- <a href="/" class="logo" aria-label="Home">
+      <h4 class="rye-regular">Montana Tattoo & Western Arts Rendezvous</h4>
+    </a> -->
     <NavSecondary aria-label="Secondary" />
   </div>
-
   <!-- <Hamburger /> -->
 </header>
 
 <style>
   header.site-header {
-    /* background: #1c1c1c; */
-    background: #000000;
+    background: var(--primary-color);
     box-shadow: 0 0 20px rgb(0, 0, 0, 0.624);
     box-sizing: border-box;
     border-bottom: 0.5rem solid var(--primary-color);
@@ -68,6 +61,7 @@ const isHomePage: boolean = Astro.props.isHomePage;
   a {
     text-decoration: none;
   }
+
   .logo {
     color: white;
     position: relative;

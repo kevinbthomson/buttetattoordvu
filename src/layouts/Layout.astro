@@ -1,7 +1,7 @@
 ---
-import { sanityClient } from 'sanity:client';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import { sanityClient } from "sanity:client";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 
 const siteSettings = await sanityClient.fetch(`*[_type == "siteSettings"]`);
 
@@ -9,7 +9,7 @@ const site = siteSettings[0];
 
 const isHomePage = Astro.props.isHomePage;
 
-import '../styles/index.css';
+import "../styles/index.css";
 ---
 
 <!doctype html>
@@ -40,8 +40,4 @@ import '../styles/index.css';
   </body>
 </html>
 
-<style>
-  main {
-    padding-block: 2rem;
-  }
-</style>
+<style></style>

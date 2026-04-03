@@ -2,10 +2,10 @@ h1,
 h2,
 h3,
 .rye-regular {
-  font-family: 'Rye', system-ui;
+  font-family: "Rye", system-ui;
   font-weight: 400;
   font-style: normal;
-  line-height: 0.875;
+  line-height: 1;
   letter-spacing: -0.1rem;
   margin-block: 1em;
 }

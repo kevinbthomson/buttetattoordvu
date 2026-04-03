@@ -2,18 +2,20 @@
   <div class="container">
     <h2>3 days of Live Tattooing & Western Art Vendors!</h2>
 
-
     <div class="days">
       <div class="day">
-        <h3><span>Friday</span> May 22nd</h3>
+        <h3>Friday</h3>
+        <h4>May 22nd</h4>
         <p>2pm - 10pm</p>
-      </div> 
+      </div>
       <div class="day">
-        <h3><span>Saturday</span> May 23rd</h3>
+        <h3>Saturday</h3>
+        <h4>May 23rd</h4>
         <p>12pm - 10pm</p>
       </div>
       <div class="day">
-        <h3><span>Sunday</span> May 24th</h3>
+        <h3>Sunday</h3>
+        <h4>May 24th</h4>
         <p>12pm - 8pm</p>
       </div>
     </div>
@@ -22,15 +24,17 @@
 
 <style>
   .days {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
     gap: 1rem;
+    min-height: 600px;
   }
 
   @media (min-width: 768px) {
     .days {
-      flex-direction: row;
-      justify-content: space-between;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr;
     }
   }
 
@@ -39,5 +43,10 @@
     color: var(--white);
     padding: 1rem;
     border-radius: 0.25rem;
+
+    h3 {
+      font-size: 2rem;
+      margin-block: 0;
+    }
   }
 </style>

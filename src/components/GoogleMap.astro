@@ -1,5 +1,5 @@
 ---
-import { sanityClient } from 'sanity:client';
+import { sanityClient } from "sanity:client";
 
 const siteSettings = await sanityClient.fetch(`*[_type == "siteSettings"]`);
 const { address, phone, email, hotelLink } = siteSettings[0];
@@ -19,13 +19,25 @@ const { address, phone, email, hotelLink } = siteSettings[0];
 
   <div class="map-info">
     <h2>Get here!</h2>
-    <p>Walk-ins are welcome, but appointments are recommended to guarantee your spot. Check out artists and vendor links to book your appointments!</p>
+    <p>
+      Walk-ins are welcome, but appointments are recommended to guarantee your
+      spot. Check out artists and vendor links to book your appointments!
+    </p>
 
     <div class="map-details">
       <div class="detail">
         <h3>Address</h3>
-        <p><a href="https://www.google.com/maps/place/Copper+King+Hotel+%26+Convention+Center,+Butte,+Montana" target="_blank">{address}</a></p>
-        <a href={hotelLink} target="_blank" class="hotel-btn">Book your hotel here</a>
+        <p>
+          <a
+            href="https://www.google.com/maps/place/Copper+King+Hotel+%26+Convention+Center,+Butte,+Montana"
+            target="_blank">{address}</a
+          >
+        </p>
+        <p>
+          <a href={hotelLink} target="_blank" class="hotel-btn"
+            >Book your hotel here</a
+          >
+        </p>
       </div>
 
       <div class="detail">
@@ -87,10 +99,9 @@ const { address, phone, email, hotelLink } = siteSettings[0];
 
   .hotel-btn {
     display: inline-block;
-    margin-top: 0.75rem;
     padding: 0.5rem 1.25rem;
     background-color: var(--primary-color);
-    color: #fff;
+    color: var(--white);
     text-decoration: none;
     border-radius: 0.25rem;
     font-weight: 600;

@@ -7,7 +7,7 @@ import heroPoster from "../assets/images/hero-poster.webp";
   <div class="container">
     <div class="hero-content">
       <h1>Welcome to the 2026 Montana Tattoo & Western Arts Rendezvous!</h1>
-      <p>A small show with a lot of talent! Its one not to miss out on!</p>
+      <h3>A small show with a lot of talent! Its one not to miss out on!</h3>
       <p>
         All styles of tattooing will be available. Whether it be American
         Traditional, Black and Gray, Fine Line, Realism, or Japanese, we will be
@@ -32,14 +32,15 @@ import heroPoster from "../assets/images/hero-poster.webp";
     background-color: rgb(176, 212, 236);
     width: 100%;
     z-index: 1;
+    padding: 2rem 0;
   }
 
   .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 1rem;
+    min-height: 600px;
   }
 
   .hero-image img {
@@ -47,9 +48,9 @@ import heroPoster from "../assets/images/hero-poster.webp";
     box-shadow:
       2px 2px 0px #f4a708,
       4px 4px 3px rgba(0, 0, 0, 0.75);
-    max-width: 90dvw;
     position: relative;
     width: 400px;
+    height: auto;
   }
 
   .hero-poster {
@@ -69,12 +70,13 @@ import heroPoster from "../assets/images/hero-poster.webp";
     .hero-banner {
       flex-direction: row;
       height: 600px;
+      gap: 2rem;
     }
 
     .container {
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr;
+      gap: 2rem;
     }
 
     .hero-image {
