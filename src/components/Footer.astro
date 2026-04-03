@@ -1,10 +1,9 @@
 ---
-import { sanityClient } from 'sanity:client';
+import { sanityClient } from "sanity:client";
 
 const siteSettings = await sanityClient.fetch(`*[_type == "siteSettings"]`);
 
-const { siteTitle, address, email, instagram, facebook } =
-  siteSettings[0];
+const { siteTitle, address, email, instagram, facebook } = siteSettings[0];
 ---
 
 <footer>
@@ -44,21 +43,21 @@ const { siteTitle, address, email, instagram, facebook } =
 
 <style>
   footer {
-    background: black;
-    color: #faf8f5;
+    background: var(--primary-color);
+    color: var(--highlight-color);
     padding: 4rem 0 2rem;
     position: relative;
     overflow: hidden;
   }
 
   footer::after {
-    content: '';
+    content: "";
     position: absolute;
     right: -5rem;
     bottom: -5rem;
     width: 400px;
     height: 400px;
-    background-image: url('/images/logo.png');
+    background-image: url("/images/logo.png");
     background-size: contain;
     background-repeat: no-repeat;
     opacity: 0.625;
@@ -75,10 +74,11 @@ const { siteTitle, address, email, instagram, facebook } =
   }
 
   .footer-section h3 {
-    color: white;
+    color: var(--highlight-color);
     margin-bottom: 1rem;
     font-size: 1.5rem;
     font-weight: 600;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
   }
 
   .footer-section p,
@@ -110,5 +110,6 @@ const { siteTitle, address, email, instagram, facebook } =
     padding-block-start: 2rem;
     font-size: 1rem;
     text-align: center;
+    word-wrap: balanced;
   }
 </style>

@@ -1,8 +1,8 @@
 :root {
-  --primary-color: #371b04;
-  --primary-color-light: #730220;
+  --primary-color: #2b0c07;
+  --primary-color-light: rgb(204, 99, 58);
   --blue: #3bacf5;
-  --highlight-color: rgb(212, 175, 55);
+  --highlight-color: rgb(226, 191, 79);
   --white: #ffffff;
   --black: #000000;
 
@@ -15,7 +15,7 @@
   --gray-80: rgba(0, 0, 0, 0.8);
 
   --body-font: "EB Garamond", serif;
-  --heading-font: "Rye", system-ui;
+  --heading-font: "Castoro Titling", serif;
 }
 
 /* $breakpoint-sm: 576px;
