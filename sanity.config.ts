@@ -1,4 +1,4 @@
-import { defineConfig, isDev } from "sanity";
+import { defineConfig } from "sanity";
 import { visionTool } from "@sanity/vision";
 import { structureTool } from "sanity/structure";
 import { schemaTypes } from "./src/schemaTypes";
@@ -8,7 +8,7 @@ export default defineConfig({
   title: "Butte Montana Tattoo",
   projectId: "f70v9lhe",
   dataset: "production",
-  plugins: isDev ? [structureTool(), visionTool()] : [structureTool()],
+  plugins: [structureTool(), visionTool()],
   schema: {
     types: schemaTypes,
   },

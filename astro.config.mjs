@@ -16,4 +16,10 @@ export default defineConfig({
   ],
 
   adapter: netlify(),
+
+  vite: {
+    build: {
+      minify: false,
+    },
+  },
 });
