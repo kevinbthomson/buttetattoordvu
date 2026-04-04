@@ -19,4 +19,10 @@ export default defineConfig({
   ],
 
   adapter: netlify(),
+
+  vite: {
+    build: {
+      target: 'esnext',
+    },
+  },
 });
