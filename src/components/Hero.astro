@@ -1,13 +1,13 @@
 ---
-import { Image } from "astro:assets";
-import heroPoster from "../assets/images/hero-poster.webp";
+import { Image } from 'astro:assets';
+import heroPoster from '../assets/images/hero-poster.webp';
 ---
 
 <section class="hero-banner">
   <div class="container">
     <div class="hero-content">
       <h1>Welcome to the 2026 Montana Tattoo & Western Arts Rendezvous!</h1>
-      <h3>A small show with a lot of talent! Its one not to miss out on!</h3>
+      <h3>A small show with a lot of talent. It's one not to miss out on.</h3>
     </div>
     <div class="hero-image">
       <Image
@@ -24,6 +24,9 @@ import heroPoster from "../assets/images/hero-poster.webp";
 <style>
   .hero-banner {
     background-color: rgb(13, 28, 39);
+    background-image: url('/public/images/hero-background.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
     color: var(--white);
     width: 100%;
     z-index: 1;
@@ -36,6 +39,7 @@ import heroPoster from "../assets/images/hero-poster.webp";
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    align-items: center;
   }
 
   .hero-image img {
@@ -54,12 +58,14 @@ import heroPoster from "../assets/images/hero-poster.webp";
 
   h1 {
     color: var(--highlight-color);
-    font-size: 3rem;
+    font-size: 2.5rem;
 
     text-align: center;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.75);
   }
 
   h3 {
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.75);
     font-size: 1.5rem;
   }
 

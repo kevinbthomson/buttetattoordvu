@@ -1,8 +1,8 @@
 ---
-import { sanityClient } from "sanity:client";
+import { sanityClient } from 'sanity:client';
 
 const siteSettings = await sanityClient.fetch(`*[_type == "siteSettings"]`);
-const { address, phone, email, hotelLink } = siteSettings[0];
+const { address, hotelLink, hotelMapLink } = siteSettings[0];
 ---
 
 <section class="google-map container">
@@ -28,10 +28,7 @@ const { address, phone, email, hotelLink } = siteSettings[0];
       <div class="detail">
         <h3>Address</h3>
         <p>
-          <a
-            href="https://www.google.com/maps/place/Copper+King+Hotel+%26+Convention+Center,+Butte,+Montana"
-            target="_blank">{address}</a
-          >
+          <a href="hotelMapLink" target="_blank">{address}</a>
         </p>
         <p style="margin-block: 2rem;">
           <a href={hotelLink} target="_blank" class="hotel-btn"
@@ -72,7 +69,6 @@ const { address, phone, email, hotelLink } = siteSettings[0];
 
   .map-info > p {
     margin-block: 0 2rem;
-    color: var(--gray-60);
   }
 
   .map-details {
@@ -82,7 +78,6 @@ const { address, phone, email, hotelLink } = siteSettings[0];
   }
 
   .detail h3 {
-    font-size: 1.25rem;
     margin-block: 0 0.25rem;
     color: var(--primary-color);
   }

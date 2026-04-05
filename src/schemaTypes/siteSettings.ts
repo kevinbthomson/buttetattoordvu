@@ -52,5 +52,11 @@ export const siteSettings = defineType({
       type: 'url',
       validation: (rule) => rule.required(),
     }),
+    defineField({
+      name: 'hotelMapLink',
+      title: 'Hotel Map Link',
+      type: 'url',
+      validation: (rule) => rule.required(),
+    }),
   ],
 });

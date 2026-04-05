@@ -1,5 +1,5 @@
 ---
-import { sanityClient } from "sanity:client";
+import { sanityClient } from 'sanity:client';
 
 const siteSettings = await sanityClient.fetch(`*[_type == "siteSettings"]`);
 
@@ -50,18 +50,6 @@ const { siteTitle, address, email, instagram, facebook } = siteSettings[0];
     overflow: hidden;
   }
 
-  footer::after {
-    content: "";
-    position: absolute;
-    right: -5rem;
-    bottom: -5rem;
-    width: 400px;
-    height: 400px;
-
-    opacity: 0.625;
-    pointer-events: none;
-  }
-
   .footer-content {
     max-width: 1200px;
     margin: 0 auto;
@@ -74,7 +62,6 @@ const { siteTitle, address, email, instagram, facebook } = siteSettings[0];
   .footer-section h3 {
     color: var(--highlight-color);
     margin-bottom: 1rem;
-    font-size: 1.5rem;
     font-weight: 600;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
   }
