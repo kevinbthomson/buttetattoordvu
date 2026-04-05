@@ -3,6 +3,7 @@
   --primary-color-light: rgb(204, 99, 58);
   --blue: #3bacf5;
   --highlight-color: rgb(226, 191, 79);
+  --dark-blue: rgb(13, 28, 39);
   --white: #ffffff;
   --black: #000000;
 
@@ -14,8 +15,8 @@
   --gray-60: rgba(0, 0, 0, 0.6);
   --gray-80: rgba(0, 0, 0, 0.8);
 
-  --body-font: "EB Garamond", serif;
-  --heading-font: "Castoro Titling", serif;
+  --body-font: 'EB Garamond', serif;
+  --heading-font: 'Castoro Titling', serif;
 }
 
 /* $breakpoint-sm: 576px;
