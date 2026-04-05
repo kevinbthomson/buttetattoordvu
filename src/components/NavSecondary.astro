@@ -1,5 +1,5 @@
 ---
-import { sanityClient } from "sanity:client";
+import { sanityClient } from 'sanity:client';
 
 const siteSettings = await sanityClient.fetch(`*[_type == "siteSettings"]`);
 
@@ -13,14 +13,14 @@ const { email, facebook, instagram, hotelLink } = siteSettings[0];
         >Email Signup</a
       >
     </li>
-    <li class="facebook">
+    <!-- <li class="facebook">
       <a
         href=`https://www.facebook.com/${facebook}`
         class="icon-link facebook"
         title="Faceboook"
         target="_blank">Faceboook</a
       >
-    </li>
+    </li> -->
     <li class="instagram">
       <a
         href=`https://www.instagram.com/${instagram}`
