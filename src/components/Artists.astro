@@ -1,7 +1,8 @@
 ---
 import { sanityClient } from 'sanity:client';
 import type { Artist } from '../types/artist';
-import SanityImage from './SanityImage.astro';
+import { Image } from 'astro:assets';
+import { urlForSanityImage } from '../lib/sanityImageUrl';
 
 const artists = await sanityClient.fetch(`*[_type == "artist"]`);
 ---
@@ -14,16 +15,26 @@ const artists = await sanityClient.fetch(`*[_type == "artist"]`);
       {
         artists
           .sort((a: Artist, b: Artist) => a.order - b.order)
-          .map((artist: Artist) => (
-            <li>
-              <a href={'/artists/' + artist.slug.current} class="artist-card">
-                <div class="artist-image">
-                  <SanityImage node={artist.image} width={480} />
-                </div>
-                <h3>{artist.name}</h3>
-              </a>
-            </li>
-          ))
+          .map((artist: Artist) => {
+            const portraitSrc = urlForSanityImage(artist.image, 480);
+            return (
+              <li>
+                <a href={'/artists/' + artist.slug.current} class="artist-card">
+                  <div class="artist-image">
+                    {portraitSrc ? (
+                      <Image
+                        alt={artist.image.alt ?? artist.name}
+                        src={portraitSrc}
+                        width={480}
+                        height={480}
+                      />
+                    ) : null}
+                  </div>
+                  <h3>{artist.name}</h3>
+                </a>
+              </li>
+            );
+          })
       }
     </ul>
 

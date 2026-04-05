@@ -5,6 +5,9 @@ import react from "@astrojs/react";
 import netlify from "@astrojs/netlify";
 
 export default defineConfig({
+  image: {
+    domains: ['cdn.sanity.io'],
+  },
   integrations: [
     sanity({
       projectId: "f70v9lhe",
@@ -16,10 +19,4 @@ export default defineConfig({
   ],
 
   adapter: netlify(),
-
-  vite: {
-    build: {
-      minify: 'terser',
-    },
-  },
 });
