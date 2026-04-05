@@ -19,4 +19,36 @@ export default defineConfig({
   ],
 
   adapter: netlify(),
+
+  vite: {
+    build: {
+      chunkSizeWarningLimit: 7000,
+      rollupOptions: {
+        output: {
+          manualChunks(id) {
+            if (!id.includes('node_modules')) return;
+
+            // Match leaf dependencies first to prevent circular chunks
+            // (nested copies under @sanity/ must land here, not in vendor-sanity)
+            if (id.includes('node_modules/react/') || id.includes('node_modules/react-is/')) {
+              return 'vendor-react';
+            }
+            if (id.includes('node_modules/react-dom/')) {
+              return 'vendor-react-dom';
+            }
+
+            // Sanity Studio + styled-components in one chunk
+            // (tightly coupled; separating them causes circular imports)
+            if (
+              id.includes('node_modules/sanity/') ||
+              id.includes('node_modules/@sanity/') ||
+              id.includes('node_modules/styled-components/')
+            ) {
+              return 'vendor-sanity';
+            }
+          },
+        },
+      },
+    },
+  },
 });
