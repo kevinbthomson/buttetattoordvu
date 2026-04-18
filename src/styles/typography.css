@@ -1,11 +1,17 @@
 h1,
 h2,
 h3,
-.castoro-titling-regular {
-  font-family: "Castoro Titling", serif;
-  font-weight: 400;
-  font-style: normal;
+.western-christmas {
+  /* font-family: "Castoro Titling", serif; */
+  font-family: var(--font-western-christmas);
   line-height: 1;
+}
+
+.knucklehead-slab-ultra-black {
+  line-height: 1;
+  font-family: var(--font-knucklehead-slab-ultra-black);
+  font-display: swap;
+  font-weight: 100 800;
 }
 
 body {

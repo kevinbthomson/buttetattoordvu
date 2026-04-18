@@ -1,0 +1,75 @@
+---
+import { sanityClient } from 'sanity:client';
+import Layout from '../../layouts/Layout.astro';
+import type { Artist } from '../../types/artist';
+import SanityImage from '../../components/SanityImage.astro';
+
+const artists = await sanityClient.fetch(`*[_type == "artist"]`);
+---
+
+<Layout title="artists">
+  <article class="container">
+    <h1>Artists</h1>
+
+    <ul class="artist-list">
+      {
+        artists
+          .sort((a: Artist, b: Artist) => a.order - b.order)
+          .map((artist: Artist) => (
+            <li>
+              <a
+                href={'/artists/' + artist.slug.current}
+                class="artist-link new-rocker-regular"
+              >
+                <SanityImage
+                  className="portfolio-image"
+                  mode="cover"
+                  node={artist.image}
+                />
+                <h3>{artist.name}</h3>
+              </a>
+            </li>
+          ))
+      }
+    </ul>
+  </article>
+</Layout>
+
+<style>
+  ul {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+  }
+
+  li {
+    border-radius: 0.25rem;
+    overflow: hidden;
+    text-align: center;
+    background-color: #1d1d1d;
+  }
+
+  img {
+    transition: all 0.2s ease-in-out;
+    scale: 1;
+  }
+
+  a {
+    color: white;
+    position: relative;
+
+    &:hover {
+      text-decoration: none;
+
+      & img {
+        scale: 1.1;
+      }
+    }
+
+    & h3 {
+    }
+  }
+</style>

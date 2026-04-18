@@ -59,9 +59,11 @@
     box-shadow: 0 0 1rem rgba(0 0 0 / 0.3);
     color: var(--white);
     padding-block-start: 2rem;
-    border-radius: 0.5rem;
     text-align: center;
     position: relative;
+    border-radius: 0.75rem;
+    corner-shape: scoop;
+    border: 1px solid white;
   }
 
   h3 {
@@ -83,7 +85,9 @@
     margin: 0;
     font-size: 2rem;
     width: 100%;
-    border-radius: 0 0 0.5rem 0.5rem;
+    border-radius: 0 0 0.75rem 0.75rem;
+    corner-bottom-right-shape: scoop;
+    corner-bottom-left-shape: scoop;
   }
 
   @media screen and (min-width: 768px) {
