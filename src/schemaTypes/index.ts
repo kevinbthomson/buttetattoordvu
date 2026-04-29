@@ -1,5 +1,5 @@
 import { siteSettings } from './siteSettings';
-import { artistType } from './artistType';
-import { pageType } from './pageType';
+import { artist } from './artist';
+import { page } from './page';
 
-export const schemaTypes = [artistType, siteSettings, pageType];
+export const schemaTypes = [artist, siteSettings, page];

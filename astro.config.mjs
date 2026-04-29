@@ -50,6 +50,21 @@ export default defineConfig({
         ],
       },
     },
+    {
+      provider: fontProviders.local(),
+      name: 'KnuckleheaddecoBlack',
+      cssVariable: '--font-knuckleheaddeco-black',
+      options: {
+        variants: [
+          {
+            src: ['./src/assets/fonts/knuckleheaddeco-black-webfont.woff2'],
+            weight: '100 900',
+            style: 'normal',
+            // display: 'swap',
+          },
+        ],
+      },
+    },
   ],
 
   adapter: netlify(),

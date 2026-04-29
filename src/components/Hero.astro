@@ -32,7 +32,6 @@ import heroPoster from '../assets/images/hero-poster.webp';
     background-image: url('/public/images/hero-background.webp');
     background-repeat: no-repeat;
     background-size: cover;
-    color: var(--white);
     width: 100%;
     z-index: 1;
     padding: 2rem 0;
@@ -62,7 +61,7 @@ import heroPoster from '../assets/images/hero-poster.webp';
   }
 
   h1 {
-    color: var(--highlight-color);
+    color: var(--white);
     font-size: 2.5rem;
     line-height: 1;
     text-align: center;
@@ -70,8 +69,13 @@ import heroPoster from '../assets/images/hero-poster.webp';
   }
 
   h3 {
+    color: var(--highlight-color);
     text-shadow: 2px 2px 0 black;
     font-size: 1.5rem;
+  }
+
+  p {
+    color: var(--highlight-color);
   }
 
   @media (min-width: 768px) {

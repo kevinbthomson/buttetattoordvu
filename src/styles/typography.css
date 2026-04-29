@@ -3,8 +3,11 @@ h2,
 h3,
 .western-christmas {
   /* font-family: "Castoro Titling", serif; */
-  font-family: var(--font-western-christmas);
+  /* font-family: var(--font-western-christmas); */
+  font-family: var(--font-knuckleheaddeco-black);
   line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.0625em;
 }
 
 .knucklehead-slab-ultra-black {

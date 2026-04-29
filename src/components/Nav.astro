@@ -6,10 +6,10 @@
   <ul class="nav-container">
     <li><a href="/" class="nav-item">Home</a></li>
     <li><a href="/artists" class="nav-item">Artists</a></li>
-    <li><a href="/vendors" class="nav-item">Vendors</a></li>
+    <!-- <li><a href="/vendors" class="nav-item">Vendors</a></li>
     <li><a href="/about" class="nav-item">About</a></li>
     <li><a href="/location" class="nav-item">Location</a></li>
-    <li><a href="/news" class="nav-item">News</a></li>
+    <li><a href="/news" class="nav-item">News</a></li> -->
   </ul>
 </nav>
 
@@ -29,12 +29,12 @@
   }
 
   nav {
-    &[aria-label="Main"] {
+    &[aria-label='Main'] {
       background-color: #2f2f2f;
       box-sizing: border-box;
       height: 100vh;
       left: 0;
-      overflow: hidden;
+
       padding: 2rem;
       position: fixed;
       top: 0;
@@ -44,7 +44,7 @@
       z-index: 100;
 
       &::before {
-        content: "";
+        content: '';
         position: absolute;
         right: -2rem;
         bottom: -2rem;
@@ -55,7 +55,7 @@
         pointer-events: none;
       }
 
-      &[data-mobile-nav-open="true"] {
+      &[data-mobile-nav-open='true'] {
         translate: 0 0;
       }
     }
@@ -72,7 +72,7 @@
         & a {
           color: var(--white);
           font-weight: 700;
-          font-family: var(--heading-font);
+          font-family: var(--font-knuckleheaddeco-black);
           font-size: 2rem;
           transition: all 200ms;
           text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -87,7 +87,7 @@
             scale: 1;
           }
 
-          &[aria-current="page"] {
+          &[aria-current='page'] {
             color: var(--highlight-color);
           }
         }
@@ -96,7 +96,7 @@
   }
 
   @media screen and (min-width: 768px) {
-    nav[aria-label="Main"] {
+    nav[aria-label='Main'] {
       background-color: transparent;
       height: auto;
       padding: 0;
@@ -118,10 +118,6 @@
           line-height: 1;
           margin-block-end: 0;
 
-          &:first-of-type {
-            display: none;
-          }
-
           &:last-of-type {
             margin-inline-end: 0;
           }
@@ -135,8 +131,7 @@
           }
 
           a {
-            font-family: var(--body-font);
-            font-size: 1.25rem;
+            text-transform: uppercase;
           }
         }
       }

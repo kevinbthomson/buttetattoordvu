@@ -13,29 +13,47 @@ const artists = await sanityClient.fetch(`*[_type == "artist"]`);
 
     <ul class="artist-list">
       {
-        artists
-          .sort((a: Artist, b: Artist) => a.order - b.order)
-          .map((artist: Artist) => (
-            <li>
+        artists.map((artist: Artist) => (
+          <li>
+            {artist.instagram ? (
               <a
-                href={'/artists/' + artist.slug.current}
-                class="artist-link new-rocker-regular"
+                href={`https://www.instagram.com/${artist.instagram}`}
+                target="_blank"
+                rel="noreferrer"
               >
-                <SanityImage
-                  className="portfolio-image"
-                  mode="cover"
-                  node={artist.image}
-                />
+                {artist.image && (
+                  <SanityImage
+                    class="portfolio-image"
+                    mode="cover"
+                    node={artist.image}
+                  />
+                )}
                 <h3>{artist.name}</h3>
               </a>
-            </li>
-          ))
+            ) : (
+              <>
+                {artist.image && (
+                  <SanityImage
+                    class="portfolio-image"
+                    mode="cover"
+                    node={artist.image}
+                  />
+                )}
+                <h3>{artist.name}</h3>
+              </>
+            )}
+          </li>
+        ))
       }
     </ul>
   </article>
 </Layout>
 
 <style>
+  article {
+    padding-block: 2rem;
+  }
+
   ul {
     display: grid;
     gap: 1rem;
@@ -50,16 +68,23 @@ const artists = await sanityClient.fetch(`*[_type == "artist"]`);
     overflow: hidden;
     text-align: center;
     background-color: #1d1d1d;
+    color: white;
+    position: relative;
+    aspect-ratio: 1;
   }
 
   img {
     transition: all 0.2s ease-in-out;
     scale: 1;
+    z-index: 2;
   }
 
   a {
+    display: flex;
+    align-items: center;
     color: white;
-    position: relative;
+    height: 100%;
+    width: 100%;
 
     &:hover {
       text-decoration: none;
@@ -68,8 +93,15 @@ const artists = await sanityClient.fetch(`*[_type == "artist"]`);
         scale: 1.1;
       }
     }
+  }
 
-    & h3 {
-    }
+  h3 {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    background: black;
+    z-index: 4;
+    padding-block: 0.25rem;
   }
 </style>

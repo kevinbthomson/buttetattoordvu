@@ -18,20 +18,18 @@ const artists = await sanityClient.fetch(`*[_type == "artist"]`);
           .map((artist: Artist) => {
             const portraitSrc = urlForSanityImage(artist.image, 480);
             return (
-              <li>
-                <a href={'/artists/' + artist.slug.current} class="artist-card">
-                  <div class="artist-image">
-                    {portraitSrc ? (
-                      <Image
-                        alt={artist.image.alt ?? artist.name}
-                        src={portraitSrc}
-                        width={480}
-                        height={480}
-                      />
-                    ) : null}
-                  </div>
-                  <h3>{artist.name}</h3>
-                </a>
+              <li class="artist-card">
+                {/* <div class="artist-image">
+                  {portraitSrc ? (
+                    <Image
+                      alt={artist.image.alt ?? artist.name}
+                      src={portraitSrc}
+                      width={480}
+                      height={480}
+                    />
+                  ) : null}
+                </div> */}
+                <h3>{artist.name}</h3>
               </li>
             );
           })

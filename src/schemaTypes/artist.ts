@@ -1,6 +1,6 @@
 import { defineField, defineType } from 'sanity';
 
-export const artistType = defineType({
+export const artist = defineType({
   name: 'artist',
   title: 'Artists',
   type: 'document',
@@ -8,7 +8,13 @@ export const artistType = defineType({
     defineField({
       name: 'name',
       type: 'string',
-      title: 'Nqme',
+      title: 'Name',
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: 'shop',
+      type: 'string',
+      title: 'Shop',
       validation: (rule) => rule.required(),
     }),
     defineField({

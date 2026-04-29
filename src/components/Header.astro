@@ -4,6 +4,7 @@ const siteSettings = await sanityClient.fetch(`*[_type == "siteSettings"]`);
 
 const site = siteSettings[0];
 
+import Nav from './Nav.astro';
 import NavSecondary from './NavSecondary.astro';
 
 const isHomePage: boolean = Astro.props.isHomePage;
@@ -11,6 +12,7 @@ const isHomePage: boolean = Astro.props.isHomePage;
 
 <header class="site-header">
   <div class="container">
+    <Nav />
     <NavSecondary aria-label="Secondary" />
   </div>
   <!-- <Hamburger /> -->

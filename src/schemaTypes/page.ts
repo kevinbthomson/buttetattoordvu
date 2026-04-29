@@ -1,6 +1,6 @@
 import { defineField, defineType } from 'sanity';
 
-export const pageType = defineType({
+export const page = defineType({
   name: 'page',
   title: 'Pages',
   type: 'document',
