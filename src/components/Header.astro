@@ -14,10 +14,10 @@ const isHomePage: boolean = Astro.props.isHomePage;
 <header class="site-header">
   <div class="container">
     <Nav />
+    <Hamburger />
     <a href="/" class="logo-link">BUTTERDVU</a>
     <NavSecondary aria-label="Secondary" />
   </div>
-  <Hamburger />
 </header>
 
 <style>
@@ -62,6 +62,7 @@ const isHomePage: boolean = Astro.props.isHomePage;
     font-family: var(--font-knuckleheaddeco-black);
     color: white;
     position: relative;
+    font-size: 2rem;
     transition: all 0.3s;
 
     &:hover {
@@ -72,6 +73,13 @@ const isHomePage: boolean = Astro.props.isHomePage;
   h4 {
     font-size: 2rem;
     text-shadow: 0 1px 3px rgb(0, 0, 0, 0.624);
+  }
+
+  @media screen and (min-width: 768px) {
+    .logo-link {
+      font-size: 3rem;
+      color: var(--highlight-color);
+    }
   }
 </style>
 
