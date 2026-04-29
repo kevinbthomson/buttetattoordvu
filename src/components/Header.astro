@@ -6,6 +6,7 @@ const site = siteSettings[0];
 
 import Nav from './Nav.astro';
 import NavSecondary from './NavSecondary.astro';
+import Hamburger from './Hamburger.astro';
 
 const isHomePage: boolean = Astro.props.isHomePage;
 ---
@@ -13,9 +14,10 @@ const isHomePage: boolean = Astro.props.isHomePage;
 <header class="site-header">
   <div class="container">
     <Nav />
+    <a href="/" class="logo-link">BUTTERDVU</a>
     <NavSecondary aria-label="Secondary" />
   </div>
-  <!-- <Hamburger /> -->
+  <Hamburger />
 </header>
 
 <style>
@@ -56,7 +58,8 @@ const isHomePage: boolean = Astro.props.isHomePage;
     text-decoration: none;
   }
 
-  .logo {
+  .logo-link {
+    font-family: var(--font-knuckleheaddeco-black);
     color: white;
     position: relative;
     transition: all 0.3s;
